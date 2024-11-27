@@ -1,3 +1,5 @@
 #expected format is number imagename
 #for example:
 1 ace_spades
+
+# this will break when given images with a space in their names

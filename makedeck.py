@@ -18,10 +18,11 @@ quant = []
 deckFile = open("list.txt",'r')
 deck = deckFile.readlines()
 for card in deck:
-    if card[0] != '#':
-        info = card.strip().split(' ')
-        cards.append(info[1])
-        quant.append(info[0])
+    if len(card.strip()) > 0:
+        if card[0] != '#':
+            info = card.strip().split(' ')
+            cards.append(info[1])
+            quant.append(info[0])
 
 print("read deck as:")
 for i, card in enumerate(cards, start = 0):
