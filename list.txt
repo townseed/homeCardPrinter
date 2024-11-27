@@ -3,3 +3,4 @@
 1 ace_spades
 
 # this will break when given images with a space in their names
+# at any point in the file, you may set the render size by putting 'small' or 'standard' on a line by itself. (default is standard)

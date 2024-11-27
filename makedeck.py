@@ -4,14 +4,13 @@ from reportlab.lib.pagesizes import letter
 from PIL import Image
 
 # card = (2.75*inch, 3.75*inch)
-xOffsetConstant = 2.5 * inch
-yOffsetConstant = 3.5 * inch
+
 fixedYOffset = 10
 fixedXOffset = 30
 folderString = "images\\"
 c = canvas.Canvas("printme.pdf", letter)
 # with Image.open("Leystone of Being.png") as being:
-
+cardSize = 0
 #parse list.txt
 cards = []
 quant = []
@@ -21,8 +20,21 @@ for card in deck:
     if len(card.strip()) > 0:
         if card[0] != '#':
             info = card.strip().split(' ')
-            cards.append(info[1])
-            quant.append(info[0])
+            if info[0] == "small":
+                cardSize = 1
+            elif info[0] == "standard":
+                cardSize = 0
+            else:
+                cards.append(info[1])
+                quant.append(info[0])
+
+if cardSize == 1:
+    xOffsetConstant = 2.25 * inch
+    yOffsetConstant = 3.25 * inch
+
+else:
+    xOffsetConstant = 2.5 * inch
+    yOffsetConstant = 3.5 * inch
 
 print("read deck as:")
 for i, card in enumerate(cards, start = 0):
