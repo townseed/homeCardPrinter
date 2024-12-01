@@ -1,6 +1,11 @@
-#expected format is number imagename
-#for example:
+# use verbose option to enable command line outputs
+verbose
+
+# expected format is number imagename
+# for example:
 1 ace_spades
 
-# this will break when given images with a space in their names
 # at any point in the file, you may set the render size by putting 'small' or 'standard' on a line by itself. (default is standard)
+
+# change the expected image file format with format followed by the option .png is default, for example:
+format .jpg
