@@ -35,7 +35,8 @@ for card in deck:
             elif info[0] == "verbose":
                 verbose = True
             else:
-                cards.append(card.strip()[card.strip().find(' ') + len(info[0] + " "):])
+                # add to the card list everything after the quantity and the space
+                cards.append(card.strip()[len(info[0] + " "):])
                 quant.append(info[0])
 
 if cardSize == 1:
