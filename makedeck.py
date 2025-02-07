@@ -10,7 +10,7 @@ fixedYOffset = 10
 fixedXOffset = 30
 folderString = "images\\"
 imageExtention = ".png"
-c = canvas.Canvas("printme.pdf", letter)
+printName = "printme"
 # with Image.open("Leystone of Being.png") as being:
 cardSize = 0
 #parse list.txt
@@ -18,6 +18,7 @@ cards = []
 quant = []
 deckFile = open("list.txt",'r')
 deck = deckFile.readlines()
+deckFile.close()
 for card in deck:
     if len(card.strip()) > 0:
         if card[0] != '#':
@@ -34,6 +35,8 @@ for card in deck:
                 imageExtention = info[1]
             elif info[0] == "verbose":
                 verbose = True
+            elif info[0] == "name":
+                printName = info[1]
             else:
                 # add to the card list everything after the quantity and the space
                 cards.append(card.strip()[len(info[0] + " "):])
@@ -53,6 +56,7 @@ if verbose:
         print(quant[i] + " x " + card)
 
 cardOnPage = 0
+c = canvas.Canvas(printName + ".pdf", letter)
 for i, card in enumerate(cards, start = 0):  
     cardImage = Image.open(folderString + card + imageExtention)
     if verbose:
